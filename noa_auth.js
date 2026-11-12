@@ -1,27 +1,29 @@
-// V8 Auth - Auto-login sin pantalla de login
-const AUTH = {
-  token: null,
+// V8 Auth - Auto-login DIRECTO sin pantalla
+console.log('🔓 NOA Auth: entrada directa activada');
+
+// Simular usuario logueado inmediatamente
+localStorage.setItem('noa_token', 'auto-hermann-v8');
+localStorage.setItem('noa_usuario', 'Hermann');
+localStorage.setItem('noa_rol', 'oficina');
+
+// Objeto AUTH global
+window.AUTH = {
+  token: 'auto-hermann-v8',
   usuario: 'Hermann',
   rol: 'oficina',
-  init() {
-    // Auto-login inmediato
-    this.token = 'auto';
-    localStorage.setItem('noa_token', 'auto');
-    localStorage.setItem('noa_usuario', 'Hermann');
-    localStorage.setItem('noa_rol', 'oficina');
-    return Promise.resolve(true);
-  },
-  async check() { return true; },
-  async login() { return true; },
-  logout() { location.reload(); },
-  getToken() { return 'auto'; },
-  getUsuario() { return 'Hermann'; },
-  getRol() { return 'oficina'; },
-  headers() { return { 'Authorization': 'Bearer auto' }; }
+  init: function() { return Promise.resolve(true); },
+  check: function() { return Promise.resolve(true); },
+  login: function() { return Promise.resolve(true); },
+  logout: function() { location.reload(); },
+  getToken: function() { return 'auto-hermann-v8'; },
+  getUsuario: function() { return 'Hermann'; },
+  getRol: function() { return 'oficina'; },
+  headers: function() { return { 'Authorization': 'Bearer auto-hermann-v8' }; }
 };
 
-// Auto-init
-AUTH.init();
+// Para compatibilidad: también como variable global
+window.noaToken = 'auto-hermann-v8';
+window.noaUsuario = 'Hermann';
+window.noaRol = 'oficina';
 
-window.AUTH = AUTH;
-export default AUTH;
+console.log('✅ Usuario Hermann autenticado automáticamente');
