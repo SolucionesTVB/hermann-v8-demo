@@ -27,3 +27,15 @@ window.noaUsuario = 'Hermann';
 window.noaRol = 'oficina';
 
 console.log('✅ Usuario Hermann autenticado automáticamente');
+
+// Función getUserNOA - Retorna el objeto usuario con id para las queries
+window.getUserNOA = async function() {
+  return {
+    id: 'b6090401-971a-4451-a20a-f6c686deb053',
+    nombre: 'Hermann Solera',
+    email: 'segurossolera@outlook.com',
+    rol: 'oficina'
+  };
+};
+
+console.log('✅ getUserNOA configurado para Hermann');
